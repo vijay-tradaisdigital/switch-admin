@@ -251,13 +251,13 @@ export default function SubmissionsTable() {
     <Box>
       {/* ── Stats cards ── */}
       <Grid container spacing={2} mb={3}>
-        <Grid item xs={12} sm={4}>
+        <Grid size={{ xs: 12, sm: 4 }}>
           <StatCard label="Total Shown" value={filteredRows.length} />
         </Grid>
-        <Grid item xs={12} sm={4}>
+        <Grid size={{ xs: 12, sm: 4 }}>
           <StatCard label="Enquiries" value={enquiryCount} color="primary" />
         </Grid>
-        <Grid item xs={12} sm={4}>
+        <Grid size={{ xs: 12, sm: 4 }}>
           <StatCard label="Downloads" value={downloadCount} color="secondary" />
         </Grid>
       </Grid>

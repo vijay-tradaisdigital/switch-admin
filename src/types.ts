@@ -10,3 +10,14 @@ export interface Submission {
   submittedAt: Date;
   source: string;
 }
+
+export interface ServiceRequest {
+  id: string;
+  name: string;
+  phone: string;
+  email: string;
+  request_type: string;
+  remarks: string;
+  submittedAt: Date;
+  source: string;
+}

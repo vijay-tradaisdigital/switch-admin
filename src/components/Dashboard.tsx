@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { signOut } from "firebase/auth";
 import { auth } from "../firebase";
 import {
@@ -7,17 +8,22 @@ import {
   Button,
   Box,
   Container,
+  Tabs,
+  Tab,
 } from "@mui/material";
 import LogoutIcon from "@mui/icons-material/Logout";
 import SubmissionsTable from "./SubmissionsTable";
+import ServiceRequestsTable from "./ServiceRequestsTable";
 
 export default function Dashboard() {
+  const [tab, setTab] = useState(0);
+
   return (
     <Box minHeight="100vh" bgcolor="background.default">
       <AppBar position="static" elevation={0} sx={{ borderBottom: "1px solid rgba(255,255,255,0.12)" }}>
         <Toolbar>
           <Typography variant="h6" fontWeight={700} sx={{ flexGrow: 1, letterSpacing: 0.5 }}>
-            Switch Mobility — Enquiry Submissions
+            Switch Mobility — Admin
           </Typography>
           <Button
             color="inherit"
@@ -28,10 +34,21 @@ export default function Dashboard() {
             Sign Out
           </Button>
         </Toolbar>
+        <Tabs
+          value={tab}
+          onChange={(_, v) => setTab(v)}
+          textColor="inherit"
+          indicatorColor="secondary"
+          sx={{ px: 2, "& .MuiTab-root": { textTransform: "none", fontWeight: 600 } }}
+        >
+          <Tab label="Enquiry Submissions" />
+          <Tab label="Service Requests" />
+        </Tabs>
       </AppBar>
 
       <Container maxWidth="xl" sx={{ py: 4 }}>
-        <SubmissionsTable />
+        {tab === 0 && <SubmissionsTable />}
+        {tab === 1 && <ServiceRequestsTable />}
       </Container>
     </Box>
   );

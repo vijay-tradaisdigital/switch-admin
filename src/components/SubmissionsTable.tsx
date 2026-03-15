@@ -67,7 +67,7 @@ const columns: GridColDef<Row>[] = [
   },
   { field: "name", headerName: "Name", width: 160 },
   { field: "phone", headerName: "Phone", width: 120 },
-  { field: "email", headerName: "Email", width: 240, flex: 1 },
+  { field: "email", headerName: "Email", width: 220 },
   { field: "state", headerName: "State", width: 150 },
   { field: "city", headerName: "City", width: 130 },
   { field: "vehicle", headerName: "Vehicle", width: 230 },
@@ -85,7 +85,22 @@ const columns: GridColDef<Row>[] = [
     ),
   },
   { field: "source", headerName: "Source", width: 100 },
-  { field: "origin", headerName: "Origin Page", width: 240, flex: 1 },
+  {
+    field: "origin",
+    headerName: "Origin Page",
+    width: 280,
+    flex: 1,
+    renderCell: (params: GridRenderCellParams<Row, string>) =>
+      params.value ? (
+        <Chip
+          label={params.value}
+          size="small"
+          variant="filled"
+          color="default"
+          sx={{ maxWidth: "100%", fontWeight: 500 }}
+        />
+      ) : null,
+  },
 ];
 
 // ─── Stat card ────────────────────────────────────────────────────────────────

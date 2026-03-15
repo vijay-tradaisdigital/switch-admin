@@ -14,6 +14,8 @@ import {
 import LogoutIcon from "@mui/icons-material/Logout";
 import SubmissionsTable from "./SubmissionsTable";
 import ServiceRequestsTable from "./ServiceRequestsTable";
+import TCOSubmissionsTable from "./TCOSubmissionsTable";
+import ModelSelectorSubmissionsTable from "./ModelSelectorSubmissionsTable";
 
 export default function Dashboard() {
   const [tab, setTab] = useState(0);
@@ -43,12 +45,16 @@ export default function Dashboard() {
         >
           <Tab label="Enquiry Submissions" />
           <Tab label="Service Requests" />
+          <Tab label="TCO Calculator" />
+          <Tab label="Model Selector" />
         </Tabs>
       </AppBar>
 
       <Container maxWidth="xl" sx={{ py: 4 }}>
         {tab === 0 && <SubmissionsTable />}
         {tab === 1 && <ServiceRequestsTable />}
+        {tab === 2 && <TCOSubmissionsTable />}
+        {tab === 3 && <ModelSelectorSubmissionsTable />}
       </Container>
     </Box>
   );

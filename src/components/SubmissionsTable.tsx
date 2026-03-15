@@ -85,6 +85,7 @@ const columns: GridColDef<Row>[] = [
     ),
   },
   { field: "source", headerName: "Source", width: 100 },
+  { field: "origin", headerName: "Origin Page", width: 240, flex: 1 },
 ];
 
 // ─── Stat card ────────────────────────────────────────────────────────────────
@@ -156,6 +157,7 @@ export default function SubmissionsTable() {
             minute: "2-digit",
           }),
           source: d.source ?? "website",
+          origin: d.origin ?? "",
         };
       });
 
@@ -214,6 +216,7 @@ export default function SubmissionsTable() {
       Vehicle: row.vehicle,
       Type: row.mode === "enquire" ? "Enquiry" : "Download",
       Source: row.source,
+      "Origin Page": row.origin,
     }));
 
     const worksheet = XLSX.utils.json_to_sheet(exportData);

@@ -84,22 +84,16 @@ const columns: GridColDef<Row>[] = [
       />
     ),
   },
-  { field: "source", headerName: "Source", width: 100 },
   {
     field: "origin",
     headerName: "Origin Page",
-    width: 280,
     flex: 1,
-    renderCell: (params: GridRenderCellParams<Row, string>) =>
-      params.value ? (
-        <Chip
-          label={params.value}
-          size="small"
-          variant="filled"
-          color="default"
-          sx={{ maxWidth: "100%", fontWeight: 500 }}
-        />
-      ) : null,
+    minWidth: 200,
+    renderCell: (params: GridRenderCellParams<Row, string>) => (
+      <Box sx={{ py: 1, whiteSpace: "normal", lineHeight: 1.4, fontSize: "0.85rem" }}>
+        {params.value || "—"}
+      </Box>
+    ),
   },
 ];
 
@@ -442,6 +436,7 @@ export default function SubmissionsTable() {
             rows={filteredRows}
             columns={columns}
             loading={loading}
+            getRowHeight={() => "auto"}
             pageSizeOptions={[10, 25, 50, 100]}
             initialState={{
               pagination: { paginationModel: { pageSize: 25 } },

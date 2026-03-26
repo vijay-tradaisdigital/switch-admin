@@ -16,6 +16,7 @@ import SubmissionsTable from "./SubmissionsTable";
 import ServiceRequestsTable from "./ServiceRequestsTable";
 import TCOSubmissionsTable from "./TCOSubmissionsTable";
 import ModelSelectorSubmissionsTable from "./ModelSelectorSubmissionsTable";
+import EnquireNowSubmissionsTable from "./EnquireNowSubmissionsTable";
 
 export default function Dashboard() {
   const [tab, setTab] = useState(0);
@@ -44,6 +45,7 @@ export default function Dashboard() {
           sx={{ px: 2, "& .MuiTab-root": { textTransform: "none", fontWeight: 600 } }}
         >
           <Tab label="Enquiry Submissions" />
+          <Tab label="Enquire Now Landing" />
           <Tab label="Service Requests" />
           <Tab label="TCO Calculator" />
           <Tab label="Model Selector" />
@@ -52,9 +54,10 @@ export default function Dashboard() {
 
       <Container maxWidth="xl" sx={{ py: 4 }}>
         {tab === 0 && <SubmissionsTable />}
-        {tab === 1 && <ServiceRequestsTable />}
-        {tab === 2 && <TCOSubmissionsTable />}
-        {tab === 3 && <ModelSelectorSubmissionsTable />}
+        {tab === 1 && <EnquireNowSubmissionsTable />}
+        {tab === 2 && <ServiceRequestsTable />}
+        {tab === 3 && <TCOSubmissionsTable />}
+        {tab === 4 && <ModelSelectorSubmissionsTable />}
       </Container>
     </Box>
   );
